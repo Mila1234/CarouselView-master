@@ -6,9 +6,11 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -21,7 +23,10 @@ import com.carousel.CarouselView;
 import com.carouselview.panel.ImagePanel;
 import com.carouselview.panel.ListLayoutPanel;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -40,7 +45,7 @@ public class CarouselFragment extends Fragment implements ListLayoutPanel.OnScro
     }
 
     List<View> result;
-
+   private Integer[] postition = new Integer[26];
     private CarouselView mCarouselView;
 
   //
@@ -54,6 +59,10 @@ public class CarouselFragment extends Fragment implements ListLayoutPanel.OnScro
 // In an actual app, you'd want to request a permission when the user performs an action
         // that requires that permission.
         getPermissionToReadUserContacts();
+
+        for (int i = 0 ;i<26; i++){
+            postition[i]= 0;
+        }
 
     }
 
@@ -90,6 +99,10 @@ public class CarouselFragment extends Fragment implements ListLayoutPanel.OnScro
         mRoot.findViewById(R.id.letterY25).setOnClickListener(this);
         mRoot.findViewById(R.id.letterZ26).setOnClickListener(this);
 readContacts();
+
+       // sortContactData ();
+        Collections.sort(marray);
+
         initStubItems();
 
 
@@ -97,6 +110,18 @@ readContacts();
         return mRoot;
     }
 
+    private void sortContactData() {
+
+
+        // Sorting
+        Collections.sort(marray, new Comparator<ContactData>() {
+            @Override
+            public int compare(ContactData fruit2, ContactData fruit1) {
+
+                return fruit1.getName().compareTo(fruit2.getName());
+            }
+        });
+    }
 
 
     @Override
@@ -136,12 +161,142 @@ readContacts();
     private List<View> initStubItems() {
          result = new ArrayList<>();
 
+
+
+
         Iterator<ContactData> iter = marray.iterator();
-
+Integer pozicija = -1 ;
         while (iter.hasNext()){
-
+            pozicija++;
             ContactData tek;
             tek = iter.next();
+            if (tek.getName().substring(0, 1).equals("A") || tek.getName().substring(0, 1).equals("a")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("B") || tek.getName().substring(0, 1).equals("b")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("C") || tek.getName().substring(0, 1).equals("c")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("D") || tek.getName().substring(0, 1).equals("d")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("E") || tek.getName().substring(0, 1).equals("e")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("F") || tek.getName().substring(0, 1).equals("f")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("G") || tek.getName().substring(0, 1).equals("g")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("H") || tek.getName().substring(0, 1).equals("h")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("I") || tek.getName().substring(0, 1).equals("i")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("J") || tek.getName().substring(0, 1).equals("j")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("K") || tek.getName().substring(0, 1).equals("k")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("L") || tek.getName().substring(0, 1).equals("l")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("M") || tek.getName().substring(0, 1).equals("m")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("N") || tek.getName().substring(0, 1).equals("n")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("O") || tek.getName().substring(0, 1).equals("o")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("P") || tek.getName().substring(0, 1).equals("p")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("R") || tek.getName().substring(0, 1).equals("r")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("S") || tek.getName().substring(0, 1).equals("s")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("T") || tek.getName().substring(0, 1).equals("t")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("U") || tek.getName().substring(0, 1).equals("u")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("V") || tek.getName().substring(0, 1).equals("v")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("W") || tek.getName().substring(0, 1).equals("w")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("X") || tek.getName().substring(0, 1).equals("x")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("Y") || tek.getName().substring(0, 1).equals("y")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+            if (tek.getName().substring(0, 1).equals("Z") || tek.getName().substring(0, 1).equals("z")){
+                if (postition[0]==0) {
+                    postition[0] = pozicija;
+                }
+            }
+
+
 
             ImagePanel b = null;
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
@@ -288,31 +443,62 @@ readContacts();
                 if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
 
 
-
-                    ContactData cd;
-                    cd = new ContactData();
-                    marray.add(cd);
                     String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
-                    String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
 
-                    cd.seturi(getPhotoUri(id));
-
-                    System.out.println("name : " + name + ", ID : " + id);
-                    cd.setName(name);///////////
                     // get the phone number
                     Cursor pCur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,
                             ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?",
                             new String[]{id}, null);
+
+                    ArrayList<String> buffer = new ArrayList<>();
+                    buffer = new ArrayList<>();
                     while (pCur.moveToNext()) {
+
                         String phone = pCur.getString(
                                 pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                         System.out.println("phone" + phone);
-                        cd.setNumber(phone);
+                        phone = phone.replaceAll("\\s+","");
 
                         if(!validateSelectedPhoneIsDomestic(phone)){
-                            Toast.makeText(getActivity(),
-                                    getResources().getString(R.string.not_valid_mobile_phone_number), Toast.LENGTH_LONG).show();
-                            return;
+                            //Toast.makeText(getActivity(),
+                                    //getResources().getString(R.string.not_valid_mobile_phone_number), Toast.LENGTH_LONG).show();
+
+                        }else{
+
+                            Boolean indikator = false;
+
+
+                            Iterator<String> iter = buffer.iterator();
+
+                            while (iter.hasNext()){
+                                String tek = iter.next();
+                                if (tek.equals(phone)){
+                                    indikator = true;
+                                }
+                            }
+
+                            if (!indikator){
+
+
+                                buffer.add(phone);
+                                ContactData cd;
+                                cd = new ContactData();
+                                marray.add(cd);
+                                id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                                String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+
+                                cd.seturi(getPhotoUri(id));
+
+                                try {
+                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), cd.geturi());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                System.out.println("name : " + name + ", ID : " + id);
+                                cd.setName(name);
+                                cd.setNumber(phone);
+                            }
                         }
 
                     }
@@ -411,16 +597,7 @@ readContacts();
 
 
 
-    private ArrayList<String> getValidPhoneNumbers(Cursor cursorPhone){
-        ArrayList<String> list = new ArrayList<String>();
-        while(cursorPhone.moveToNext()){
-            String mobileNumber = cursorPhone.getString(cursorPhone.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-            if(validateSelectedPhoneIsDomestic(mobileNumber)) {
-                list.add (mobileNumber);
-            }
-        }
-        return list;
-    }
+
     private boolean validateSelectedPhoneIsDomestic(String phone){
         phone = phone.trim().replace(" ","").replace("(","").replace(")","").replace("-","");
         if(phone.startsWith("+381")){
@@ -449,36 +626,61 @@ readContacts();
     public void onClick(View v) {
         int position;
         switch (v.getId()){
-            case R.id.letterA1:  position = mCarouselView.getSelectedItemPosition() == 0 ? mCarouselView.getCount() - 1 : mCarouselView.getSelectedItemPosition() - 1;
-                mCarouselView.scrollToChild(position);//ovde samo pitam da li ima ime sa imenom koje pocinje na A i uzmem njegovu poziciju u idem na tu poziciju
+            case R.id.letterA1:
+
+
+                mCarouselView.scrollToChild(postition[0]);//ovde samo pitam da li ima ime sa imenom koje pocinje na A i uzmem njegovu poziciju u idem na tu poziciju
                 mCarouselView.invalidate(); break;
-            case R.id.letterB2:  position = mCarouselView.getSelectedItemPosition() == 0 ? mCarouselView.getCount() - 1 : mCarouselView.getSelectedItemPosition() - 1;
-                mCarouselView.scrollToChild(position);
-                mCarouselView.invalidate();break;
-            case R.id.letterC3: break;
-            case R.id.letterD4: break;
-            case R.id.letterE5: break;
-            case R.id.letterF6: break;
-            case R.id.letterG7: break;
-            case R.id.letterH8: break;
-            case R.id.letterI9: break;
-            case R.id.letterJ10: break;
-            case R.id.letterK11: break;
-            case R.id.letterL12: break;
-            case R.id.letterM13: break;
-            case R.id.letterN14: break;
-            case R.id.letterO15: break;
-            case R.id.letterP16: break;
-            case R.id.letterQ17: break;
-            case R.id.letterR18: break;
-            case R.id.letterS19: break;
-            case R.id.letterT20: break;
-            case R.id.letterU21: break;
-            case R.id.letterV22: break;
-            case R.id.letterW23: break;
-            case R.id.letterX24: break;
-            case R.id.letterY25: break;
-            case R.id.letterZ26: break;
+            case R.id.letterB2:   mCarouselView.scrollToChild(postition[1]);//ovde samo pitam da li ima ime sa imenom koje pocinje na A i uzmem njegovu poziciju u idem na tu poziciju
+                mCarouselView.invalidate(); break;
+            case R.id.letterC3:  mCarouselView.scrollToChild(postition[2]);//ovde samo pitam da li ima ime sa imenom koje pocinje na A i uzmem njegovu poziciju u idem na tu poziciju
+                mCarouselView.invalidate(); break;
+            case R.id.letterD4:   mCarouselView.scrollToChild(postition[3]);//ovde samo pitam da li ima ime sa imenom koje pocinje na A i uzmem njegovu poziciju u idem na tu poziciju
+                mCarouselView.invalidate(); break;
+            case R.id.letterE5:   mCarouselView.scrollToChild(postition[4]);//ovde samo pitam da li ima ime sa imenom koje pocinje na A i uzmem njegovu poziciju u idem na tu poziciju
+                mCarouselView.invalidate(); break;
+            case R.id.letterF6:   mCarouselView.scrollToChild(postition[5]);//ovde samo pitam da li ima ime sa imenom koje pocinje na A i uzmem njegovu poziciju u idem na tu poziciju
+                mCarouselView.invalidate(); break;
+            case R.id.letterG7:   mCarouselView.scrollToChild(postition[6]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterH8: mCarouselView.scrollToChild(postition[7]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterI9: mCarouselView.scrollToChild(postition[8]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterJ10: mCarouselView.scrollToChild(postition[9]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterK11: mCarouselView.scrollToChild(postition[10]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterL12: mCarouselView.scrollToChild(postition[11]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterM13: mCarouselView.scrollToChild(postition[12]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterN14: mCarouselView.scrollToChild(postition[13]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterO15: mCarouselView.scrollToChild(postition[14]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterP16: mCarouselView.scrollToChild(postition[15]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterQ17: mCarouselView.scrollToChild(postition[16]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterR18: mCarouselView.scrollToChild(postition[17]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterS19: mCarouselView.scrollToChild(postition[18]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterT20: mCarouselView.scrollToChild(postition[19]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterU21: mCarouselView.scrollToChild(postition[20]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterV22: mCarouselView.scrollToChild(postition[21]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterW23: mCarouselView.scrollToChild(postition[22]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterX24: mCarouselView.scrollToChild(postition[23]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterY25: mCarouselView.scrollToChild(postition[24]);
+                mCarouselView.invalidate(); break;
+            case R.id.letterZ26: mCarouselView.scrollToChild(postition[25]);
+                mCarouselView.invalidate(); break;
 
         }
 

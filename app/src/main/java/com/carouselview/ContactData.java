@@ -5,12 +5,18 @@ import android.net.Uri;
 /**
  * Created by marija.radisavljevic on 9/15/2016.
  */
-public class ContactData {
+public class ContactData implements Comparable<ContactData>{
     private Uri uri;
     private String number;
     private String name;
 
+    @Override
+    public int compareTo(ContactData fruit) {
 
+
+
+      return   name.compareTo(fruit.getName());
+    }
     public Uri geturi() {
         return uri;
     }

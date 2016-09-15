@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 
+import com.carouselview.R;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -35,7 +36,12 @@ public class ImagePanel extends BasePanel {
         //Picasso.with(getContext()).load(resId).resize(200, 200).
              //   centerCrop().into(mImageViewHolder);
 
+
         Picasso.with(getContext()).load(resId).into(mImageViewHolder);
+        if (mImageViewHolder.getDrawable() == null) {  // If no image is found.
+            mImageViewHolder.setImageResource(R.drawable.tor);
+        }
+
     }
 
 
