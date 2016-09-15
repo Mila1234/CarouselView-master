@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">CarouselView</string>
     <string name="carousel_view_test_application">Carousel View test application</string>
+
+    <!-- Used for the AlphabetIndexer in ContactsListFragment to provide quick navigation by
+        alphabet using ListView fast scroll. -->
+    <string name="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+
 </resources>
