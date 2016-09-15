@@ -1,6 +1,7 @@
 package com.carouselview.panel;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
@@ -30,9 +31,11 @@ public class ImagePanel extends BasePanel {
         initImagePanel();
     }
 
-    public void setImageResId(int resId) {
-        Picasso.with(getContext()).load(resId).resize(200, 200).
-                centerCrop().into(mImageViewHolder);
+    public void setImageResId(Uri resId) {
+        //Picasso.with(getContext()).load(resId).resize(200, 200).
+             //   centerCrop().into(mImageViewHolder);
+
+        Picasso.with(getContext()).load(resId).into(mImageViewHolder);
     }
 
 
@@ -85,4 +88,9 @@ public class ImagePanel extends BasePanel {
     }
 
 
+    public void setURI(Uri uri) {
+
+      //  mImageViewHolder.setImageURI(Uri.parse(new File(uri).toString()));
+
+    }
 }

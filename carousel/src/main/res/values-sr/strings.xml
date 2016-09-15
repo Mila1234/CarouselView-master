@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="not_valid_mobile_phone_number">Broj telefona primaoca nije validan. Mora počinjati sa +381 ili sa 06.</string>
+
+
+</resources>

@@ -5,5 +5,6 @@
     <!-- Used for the AlphabetIndexer in ContactsListFragment to provide quick navigation by
         alphabet using ListView fast scroll. -->
     <string name="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="not_valid_mobile_phone_number">Recipient phone number is invalid. It must start with +381 or 06.</string>
 
 </resources>
